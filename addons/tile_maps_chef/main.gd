@@ -65,6 +65,6 @@ func _on_custom_button_pressed():
 							polygon = GeometryUtils.polygon_to_local(polygon, cell_pos)
 							nav_data.add_obstruction_outline(polygon)
 	
-	print("Obstruction outlines count: $s" % nav_data.obstruction_outlines.size())
+	print("Obstruction outlines count: %s" % nav_data.obstruction_outlines.size())
 	
 	NavigationServer2D.bake_from_source_geometry_data_async(selected_nav_region.navigation_polygon, nav_data)
