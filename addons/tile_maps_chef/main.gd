@@ -67,4 +67,8 @@ func _on_custom_button_pressed():
 	
 	print("Obstruction outlines count: $s" % nav_data.obstruction_outlines.size())
 	
-	NavigationServer2D.bake_from_source_geometry_data_async(selected_nav_region.navigation_polygon, nav_data)
+	NavigationServer2D.bake_from_source_geometry_data_async(selected_nav_region.navigation_polygon, nav_data, _on_source_geometry_baked)
+
+func _on_source_geometry_baked():
+	if selected_nav_region:
+		selected_nav_region.queue_redraw()
