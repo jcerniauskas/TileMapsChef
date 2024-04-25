@@ -43,7 +43,10 @@ func _add_control_for_selected_nav_region():
 	add_control_to_bottom_panel(container, "TileChef")
 	
 func _remove_current_nav_region_control():
-	remove_control_from_bottom_panel(container)
+	if container:
+		remove_control_from_bottom_panel(container)
+		container.free()
+		container = null
 
 func _on_custom_button_pressed():
 	var nav_data = NavigationMeshSourceGeometryData2D.new()
